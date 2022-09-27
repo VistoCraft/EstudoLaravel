@@ -1,7 +1,3 @@
-<script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
-</script>
-
 <template>
     <AppLayout title="Dashboard">
         <template #header>
@@ -63,6 +59,25 @@ import AppLayout from '@/Layouts/AppLayout.vue';
         </div>
     </AppLayout>
 </template>
+
+<script>
+    import AppLayout from '@/Layouts/AppLayout.vue';
+
+    export default{
+        components:{
+            AppLayout
+        },
+        data() {
+            return {users: ['oi']}
+        },
+        mounted(){
+            axios.get('api/users').then(response => {
+                console.log(response);
+            })
+        }  
+    }
+    
+</script>
 
 <style>
 .enviada {
